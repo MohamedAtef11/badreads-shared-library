@@ -9,7 +9,7 @@ def call(){
                         }
                     }
                 }    
-            }
+            
             stage('build') {
                 steps {
                     script{
@@ -27,6 +27,6 @@ def call(){
                 }
                 }
             }
-        
+        }   
     }
 }
