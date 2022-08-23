@@ -1,6 +1,6 @@
 def call() {
 
-    load-docker-files()
+    loaddockerfiles()
     withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
         sh """
             docker login -u '${USERNAME}' -p '${PASSWORD}'
