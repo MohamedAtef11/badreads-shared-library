@@ -10,7 +10,7 @@ def call(){
             }
     def dir_templates= "badreads/templates/back-end-deployment.yaml badreads/templates/backend-service.yaml badreads/templates/front-end-deployment.yaml badreads/templates/frontend-service.yaml"
     def dirs_templates = dir_templates.split(" ")
-        for (i in dirs) {
+        for (i in dirs_templates) {
                 def file_name = i.split("/")[-1]
                 def content = libraryResource i
                 writeFile file: "badreads/templates/${file_name}", text: content
