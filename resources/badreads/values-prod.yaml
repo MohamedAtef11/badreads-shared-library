@@ -1,0 +1,6 @@
+backend:
+  namespace: prod
+frontend:
+  namespace: prod
+frontendservice:
+  nodePort: 30012

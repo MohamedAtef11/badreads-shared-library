@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Values.frontend.namespace }}
+  name: {{ .Values.frontend.name }}  
+  labels:
+    app: {{ .Values.frontend.app }}
+  # annotations:
+  #   meta.helm.sh/release-namespace: {{ .Values.frontend.namespace }}
+spec:
+  replicas: {{ .Values.frontend.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.frontend.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontend.app }}
+    spec:
+      containers:
+      - name: {{ .Values.frontend.containername }}
+        image: {{ .Values.frontend.image.repository }}
+        imagePullPolicy: {{ .Values.frontend.image.pullPolicy }} 
+        ports:
+        - containerPort: {{ .Values.frontend.containerPort }}

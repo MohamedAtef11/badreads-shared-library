@@ -1,0 +1,34 @@
+backend:
+  name: back-end-deployment
+  app: back-end
+  replicaCount: 1
+  containername: back-end-container
+  containerPort: 4000  
+  image:
+    repository: muhammadatef/badreadsserver-dev-21
+    pullPolicy: Always
+    
+
+backendservice:
+  name: back-end-service
+  type: ClusterIP
+  port: 4000
+  targetPort: 4000
+
+
+frontend:
+  name: front-end-deployment
+  app: front-end
+  replicaCount: 1
+  containername: front-end-container
+  containerPort: 3000  
+  image:
+    repository: muhammadatef/badreadsclient-dev-21
+    pullPolicy: Always
+    
+
+frontendservice:
+  name: front-end-service
+  type: NodePort
+  port: 3000
+  targetPort: 3000
